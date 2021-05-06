@@ -16,7 +16,7 @@ class SolarPlant extends Component{
         
 
         componentDidMount = () => {
-            axios.get("http://localhost:8080//Solar").then(response => {
+            axios.get("http://localhost:8080/Solar").then(response => {
                 this.setState({
                     condition: response
                 })

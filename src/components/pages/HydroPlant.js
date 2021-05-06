@@ -18,7 +18,7 @@ class HydroPlant extends Component{
         componentDidMount = () => {
             axios.get("http://localhost:8080/Hydro").then(response => {
                 this.setState({
-                    condition: response.data
+                    condition: response
                 })
             });
         };
@@ -34,7 +34,7 @@ class HydroPlant extends Component{
                 </form>  */}
                 {/* <input name="Hydro" type="submit" value="Luminant Station"></input> */}
                 <p>
-                Hydro Plants and Associated IDs: {this.state.condition}
+                Hydro Plants and Associated IDs: 
                 </p>
                 {this.state.condition.map((condition) => {<div>{condition.name}</div>})}
                 </h1>

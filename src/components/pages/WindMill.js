@@ -16,7 +16,7 @@ class WindMill extends Component{
         
 
         componentDidMount = () => {
-            axios.get("http://localhost:8080//Wind").then(response => {
+            axios.get("http://localhost:8080/Wind").then(response => {
 
                 this.setState({
                     condition: response
