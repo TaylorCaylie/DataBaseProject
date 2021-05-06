@@ -10,13 +10,15 @@ class HydroPlant extends Component{
 
             super();
             this.state = {
-                condition: "Not yet received"
+                condition: []
             };
         }
         
 
         componentDidMount = () => {
-            axios.get("/Hydro").then(response => {
+            console.log("hello!!")
+            axios.get("http://localhost:8080/Hydro/").then(response => {
+                console.log(response)
                 this.setState({
                     condition: response
                 })
