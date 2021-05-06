@@ -10,13 +10,13 @@ class SolarPlant extends Component{
 
             super();
             this.state = {
-                condition: "Not yet received"
+                condition: []
             };
         }
         
 
         componentDidMount = () => {
-            axios.get("/Solar").then(response => {
+            axios.get("http://localhost:8080//Solar").then(response => {
                 this.setState({
                     condition: response
                 })
@@ -32,7 +32,10 @@ class SolarPlant extends Component{
                 <input type="submit" />
                 </form>  */}
                 {/* <input name="Hydro" type="submit" value="Luminant Station"></input> */}
-                Solar Plants and Associated IDs: {this.state.condition}
+                <p>
+                Solar Plants and Associated IDs:
+                </p>
+                {this.state.condition.map(condition => <div>{condition.name}</div>)}
                 </h1>
             </div>
         ); }

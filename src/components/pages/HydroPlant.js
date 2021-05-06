@@ -16,9 +16,9 @@ class HydroPlant extends Component{
         
 
         componentDidMount = () => {
-            axios.get("/Hydro").then(response => {
+            axios.get("http://localhost:8080/Hydro").then(response => {
                 this.setState({
-                    condition: response
+                    condition: response.data
                 })
             });
         };
@@ -33,7 +33,10 @@ class HydroPlant extends Component{
                 <input type="submit" />
                 </form>  */}
                 {/* <input name="Hydro" type="submit" value="Luminant Station"></input> */}
+                <p>
                 Hydro Plants and Associated IDs: {this.state.condition}
+                </p>
+                {this.state.condition.map((condition) => {<div>{condition.name}</div>})}
                 </h1>
             </div>
         ); }

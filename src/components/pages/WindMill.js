@@ -10,13 +10,13 @@ class WindMill extends Component{
 
             super();
             this.state = {
-                condition: "Not yet received"
+                condition: []
             };
         }
         
 
         componentDidMount = () => {
-            axios.get("/Wind").then(response => {
+            axios.get("http://localhost:8080//Wind").then(response => {
 
                 this.setState({
                     condition: response
@@ -26,16 +26,16 @@ class WindMill extends Component{
         };
         render(){
         return (
+
+            
             <div>
                 <link rel="stylesheet" type="text/css" href="WindMill.css"/>
                 {/* <li class="button1" onclick="doCommand('bold');" id="bold-button" title="bold">B</li> */}
                 <h1 class= "mainHydro">
-                 {/* <form action="/submit-student-data" method="post">
-                HydroPlant ID: <input name="firstName" type="text" /> <br />
-                <input type="submit" />
-                </form>  */}
-                {/* <input name="Hydro" type="submit" value="Luminant Station"></input> */}
-                WindMill Plants and Associated IDs: {this.state.condition}
+               <p>
+                WindMill Plants and Associated IDs: 
+                </p>
+                {this.state.condition.map(condition => <div>{condition.name}</div>)}
                 </h1>
             </div>
         ); }
